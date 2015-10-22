@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		7133F3EC1BD3CB5A008A448F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133F3EB1BD3CB5A008A448F /* main.m */; };
+		7133F41D1BD3E404008A448F /* YearAndMonthNow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133F41C1BD3E404008A448F /* YearAndMonthNow.m */; settings = {ASSET_TAGS = (); }; };
+		7133F4331BD405D8008A448F /* JudgeNumberRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133F4321BD405D8008A448F /* JudgeNumberRegex.m */; settings = {ASSET_TAGS = (); }; };
+		7133F4361BD41669008A448F /* PrintYearAndMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133F4351BD41669008A448F /* PrintYearAndMonth.m */; settings = {ASSET_TAGS = (); }; };
+		7133F4391BD472BB008A448F /* Days.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133F4381BD472BB008A448F /* Days.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,14 @@
 /* Begin PBXFileReference section */
 		7133F3E81BD3CB5A008A448F /* MyCalendarDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MyCalendarDemo; sourceTree = BUILT_PRODUCTS_DIR; };
 		7133F3EB1BD3CB5A008A448F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7133F41B1BD3E404008A448F /* YearAndMonthNow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearAndMonthNow.h; sourceTree = "<group>"; };
+		7133F41C1BD3E404008A448F /* YearAndMonthNow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearAndMonthNow.m; sourceTree = "<group>"; };
+		7133F4311BD405D8008A448F /* JudgeNumberRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JudgeNumberRegex.h; sourceTree = "<group>"; };
+		7133F4321BD405D8008A448F /* JudgeNumberRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JudgeNumberRegex.m; sourceTree = "<group>"; };
+		7133F4341BD41669008A448F /* PrintYearAndMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintYearAndMonth.h; sourceTree = "<group>"; };
+		7133F4351BD41669008A448F /* PrintYearAndMonth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintYearAndMonth.m; sourceTree = "<group>"; };
+		7133F4371BD472BB008A448F /* Days.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Days.h; sourceTree = "<group>"; };
+		7133F4381BD472BB008A448F /* Days.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Days.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,14 @@
 			isa = PBXGroup;
 			children = (
 				7133F3EB1BD3CB5A008A448F /* main.m */,
+				7133F41B1BD3E404008A448F /* YearAndMonthNow.h */,
+				7133F41C1BD3E404008A448F /* YearAndMonthNow.m */,
+				7133F4311BD405D8008A448F /* JudgeNumberRegex.h */,
+				7133F4321BD405D8008A448F /* JudgeNumberRegex.m */,
+				7133F4341BD41669008A448F /* PrintYearAndMonth.h */,
+				7133F4351BD41669008A448F /* PrintYearAndMonth.m */,
+				7133F4371BD472BB008A448F /* Days.h */,
+				7133F4381BD472BB008A448F /* Days.m */,
 			);
 			path = MyCalendarDemo;
 			sourceTree = "<group>";
@@ -118,7 +138,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7133F4391BD472BB008A448F /* Days.m in Sources */,
+				7133F41D1BD3E404008A448F /* YearAndMonthNow.m in Sources */,
+				7133F4361BD41669008A448F /* PrintYearAndMonth.m in Sources */,
 				7133F3EC1BD3CB5A008A448F /* main.m in Sources */,
+				7133F4331BD405D8008A448F /* JudgeNumberRegex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +259,7 @@
 				7133F3F11BD3CB5A008A448F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
