@@ -8,7 +8,6 @@
 
 #import "Days.h"
 
-
 @implementation Days
 
 /*
@@ -20,14 +19,12 @@
 
 //判断是否是闰年；
 + (BOOL)isLeapYear:(int)year{
-  
   if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
     return true;
   }
   else{
     return false;
   }
-  
 }
 
 //计算从公元0年到你输入的上一年总共有多少天；
@@ -35,15 +32,13 @@
   
   int day = 0;
   BOOL isLeap;
-  
   for(int i = 1 ; i < year ; i++){
+
     isLeap = [Days isLeapYear:year];
     if(isLeap){
-      
       day += 366;
     }
     else{
-      
       day += 365;
     }
   }
@@ -70,35 +65,19 @@
   
   int day = [Days daysOfUntilLastYear:year];
   //首先计算0年到上一年有多少天；
-  
   NSMutableArray *monthArray = [[NSMutableArray alloc] init];
-  
   if ([Days isLeapYear:year]) {
     NSArray *arr = [[NSArray alloc] initWithObjects:none,jan,febLeap,mar,apr,may,jun,jul,aug,sep,oco,nov,dec, nil];
     [monthArray addObjectsFromArray:arr];
-    
   } else {
     NSArray *arr = [[NSArray alloc] initWithObjects:none,jan,febNotLeap,mar,apr,may,jun,jul,aug,sep,oco,nov,dec, nil];
     [monthArray addObjectsFromArray:arr];
   }
-  
-  
 //  NSLog(@"第二个元素 = %d",[[monthArray objectAtIndex:2] intValue] );
-  
-  
   for(int i = 1 ; i < yue ; i++){
     day += [[monthArray objectAtIndex:i] intValue];
   }
-  
   return day;
-  
 }
 
 @end
-
-
-
-
-
-
-

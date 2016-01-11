@@ -11,7 +11,6 @@
 
 @implementation PrintYearAndMonth
 
-
 //MARK: - 输出每个月的日历的函数；
 //输出一个月的日历；
 - (void) printmonth:(int)year yue:(int)yue{
@@ -34,15 +33,15 @@
   NSMutableArray *monthArray = [[NSMutableArray alloc] init];
   
   if ([Days isLeapYear:year]) {
+
     NSArray *arr = [[NSArray alloc] initWithObjects:none,jan,febLeap,mar,apr,may,jun,jul,aug,sep,oco,nov,dec, nil];
     [monthArray addObjectsFromArray:arr];
-    
   } else {
+
     NSArray *arr = [[NSArray alloc] initWithObjects:none,jan,febNotLeap,mar,apr,may,jun,jul,aug,sep,oco,nov,dec, nil];
     [monthArray addObjectsFromArray:arr];
   }
   int day=0;
-  
   //考虑怎样使标题居中显示；
   //计算一个月份日历的长度；
   NSString *calendarStr = [[NSString alloc] initWithFormat:@"%@",@" Su Mo Tu We Th Fr Sa"];
@@ -61,17 +60,12 @@
     printf(" ");
   }
   printf("%s\n",[monthStr UTF8String]);
-  
-  
   printf(" Su Mo Tu We Th Fr Sa\n");
   day = [Days daysOfUntilLastMonth:year yue:yue];
   //  NSLog(@"今天距离0年第1天有%d天",day);
-  
   //下面开始进行输出；
   //首先寻找这个月的1号是星期几？
-  
   //主要就是在哪一个位置输出；
-  
   /*
    一月 1
    日 一  二 三 四 五  六
@@ -81,9 +75,7 @@
    16 17 18 19 20 21 22
    23 24 25 26 27 28 29
    30 31
-   
    */
-  
   //日     一  。。。。。 五      六
   //0位置  1位置 。。。。 5位置   6位置
   //算法如下：
@@ -91,50 +83,40 @@
    位置 = (day+5)%7+1;
    */
   int position = (day + 5) % 7 + 1;
-  
   //  NSLog(@"Position位置 = %d",position);
   //注意:当position == 7的时候，第一行会留空；
   
   //确定Position后开始打印；
   //输出第一行前面的空格；
-  
   if (position == 7) {
   }else{
     for (int i = 0; i < position; i++) {
       printf("   ");
     }
   }
-  
   //输出第一行；
   int i;
   for (i = 0; i < (6 - position) + 1;) {
     printf(" %2d",++i);
   }
-  
   if (position == 7) {
   } else {
     printf("\n");
   }
-  
   //输出第二行开始所有的；
   int count = 0;
   for (; i < [[monthArray objectAtIndex:yue] intValue]; ) {
     
     printf(" %2d",++i);
-    
     count++;
     if (count == 7) {
       printf("\n");
       count = 0;
     }
   }
-  
   //月份输出完毕，换行结束；
   printf("\n");
-  
 }//printmonth();
-
-
 
 + (NSMutableString *) transformMonthToEnglish:(int)month{
   switch (month) {
@@ -180,11 +162,6 @@
   return [[NSMutableString alloc] initWithFormat:@""];;
 }
 
-
-
-
-
-
 //MARK: - 输出全年的函数；
 //输出年份；
 /*
@@ -222,44 +199,32 @@
  11 12 13 14 15 16 17  15 16 17 18 19 20 21  13 14 15 16 17 18 19
  18 19 20 21 22 23 24  22 23 24 25 26 27 28  20 21 22 23 24 25 26
  25 26 27 28 29 30 31  29 30                 27 28 29 30 31
- 
  */
-
 /*
  打印一年的方式也是一行一行打印，一行包括3个月；
- 
  */
 - (void) printyear:(int)year{
-  
   //首先居中打出年份；
   printf("                               %d\n\n",year);
-  
-  
   //首先判断一下今年是闰年吗？
   //////////////////////////////////////////////////////////打印第一组；
   //总共四组，首先实现第一组；
-  
-  
-  
   printf("       January               February               March\n");
   printf(" Su Mo Tu We Th Fr Sa ");
   printf(" Su Mo Tu We Th Fr Sa ");
   printf(" Su Mo Tu We Th Fr Sa ");
   printf("\n");
-  
   //开始打印一月的第一行；
   int day1 = 0;
   //上一年距离第一年第一天的天数；
   day1 = [Days daysOfUntilLastMonth:year yue:1];
   int position1 = (day1 + 5) % 7 + 1;
-  
   if (position1 == 7) {
   }else{
     for (int i = 0; i < position1; i++) {
       printf("   ");
     }
   }
-  
   int i1;
   if (position1 == 7) {
     for (i1 = 0; i1 < 7;) {
@@ -268,27 +233,20 @@
   } else {
     for (i1 = 0; i1 < (6 - position1) + 1;) {
       printf(" %2d",++i1);
-      
     }
-    
   }
-
-  
   //开始打印2月的第一行；
   int day2 = 0;
   day2 = [Days daysOfUntilLastMonth:year yue:2];
   int position2 = (day2 + 5) % 7 + 1;
   
   printf(" ");
-  
   if (position2 == 7) {
   }else{
     for (int i = 0; i < position2; i++) {
       printf("   ");
     }
   }
-  
-  
   int i2;
   if (position2 == 7) {
     for (i2 = 0; i2 < 7;) {
@@ -297,22 +255,13 @@
   } else {
     for (i2 = 0; i2 < (6 - position2) + 1;) {
       printf(" %2d",++i2);
-      
     }
-    
   }
-  
-  
-  
-  
-  
   //开始打印3月的第一行；
   int day3 = 0;
   day3 = [Days daysOfUntilLastMonth:year yue:3];
   int position3 = (day3 + 5) % 7 + 1;
-  
   printf(" ");
-  
   if (position3 == 7) {
   }else{
     for (int i = 0; i < position3; i++) {
@@ -328,22 +277,17 @@
   } else {
     for (i3 = 0; i3 < (6 - position3) + 1;) {
       printf(" %2d",++i3);
-      
     }
-    
   }
-
   printf("\n");
-  
-  
+
   int count1 = 0;
   int count2 = 0;
   int count3 = 0;
   BOOL flag1 = true;
   BOOL flag2 = true;
   BOOL flag3 = true;
-  
-  
+
   while (flag1 || flag2 || flag3) {
     //开始打印1月的第二行；
     for (; true; ) {
@@ -393,8 +337,6 @@
     
   }//while
   //  printf("\n");
-  
-  
   ////////////////////////////////////////////打印第2组；
   //总共四组，首先实现第2组；
   printf("        April                  May                   June\n");
@@ -415,7 +357,6 @@
       printf("   ");
     }
   }
-
   int i4;
   if (position4 == 7) {
     for (i4 = 0; i4 < 7;) {
@@ -424,11 +365,8 @@
   } else {
     for (i4 = 0; i4 < (6 - position4) + 1;) {
       printf(" %2d",++i4);
-      
     }
-    
   }
-  
   //开始打印2月的第一行；
   int day5 = 0;
   day5 = [Days daysOfUntilLastMonth:year yue:5];
@@ -451,25 +389,20 @@
   } else {
     for (i5 = 0; i5 < (6 - position5) + 1;) {
       printf(" %2d",++i5);
-      
     }
-    
   }
-  
   //开始打印3月的第一行；
   int day6 = 0;
   day6 = [Days daysOfUntilLastMonth:year yue:6];
   int position6 = (day6 + 5) % 7 + 1;
   
   printf(" ");
-  
   if (position6 == 7) {
   }else{
     for (int i = 0; i < position6; i++) {
       printf("   ");
     }
   }
-
   int i6;
   if (position6 == 7) {
     for (i6 = 0; i6 < 7;) {
@@ -478,9 +411,7 @@
   } else {
     for (i6 = 0; i6 < (6 - position6) + 1;) {
       printf(" %2d",++i6);
-      
     }
-    
   }
   printf("\n");
   
@@ -539,9 +470,7 @@
     
   }//while
   //  printf("\n");
-  
-  
-  
+
   ////////////////////////////////////////////打印第3组；
   //总共四组，首先实现第3组；
   printf("         July                 August               September\n");
@@ -571,11 +500,8 @@
   } else {
     for (i7 = 0; i7 < (6 - position7) + 1;) {
       printf(" %2d",++i7);
-      
     }
-    
   }
-  
   //开始打印2月的第一行；
   int day8 = 0;
   day8 = [Days daysOfUntilLastMonth:year yue:8];
@@ -589,7 +515,6 @@
       printf("   ");
     }
   }
-
   int i8;
   if (position8 == 7) {
     for (i8 = 0; i8 < 7;) {
@@ -598,11 +523,8 @@
   } else {
     for (i8 = 0; i8 < (6 - position8) + 1;) {
       printf(" %2d",++i8);
-      
     }
-    
   }
-  
   //开始打印3月的第一行；
   int day9 = 0;
   day9 = [Days daysOfUntilLastMonth:year yue:9];
@@ -625,9 +547,7 @@
   } else {
     for (i9 = 0; i9 < (6 - position9) + 1;) {
       printf(" %2d",++i9);
-      
     }
-    
   }
   printf("\n");
   
@@ -686,9 +606,7 @@
     
   }//while
   //  printf("\n");
-  
-  
-  
+
   ////////////////////////////////////////////打印第4组；
   //总共四组，首先实现第4组；
   printf("        October               November             December\n");
@@ -718,11 +636,8 @@
   } else {
     for (i10 = 0; i10 < (6 - position10) + 1;) {
       printf(" %2d",++i10);
-      
     }
-    
   }
-  
   //开始打印11月的第一行；
   int day11 = 0;
   day11 = [Days daysOfUntilLastMonth:year yue:11];
@@ -745,9 +660,7 @@
   } else {
     for (i11 = 0; i11 < (6 - position11) + 1;) {
       printf(" %2d",++i11);
-      
     }
-    
   }
   
   //开始打印12月的第一行；
@@ -772,13 +685,10 @@
   } else {
     for (i12 = 0; i12 < (6 - position12) + 1;) {
       printf(" %2d",++i12);
-      
     }
-    
   }
   printf("\n");
-  
-  
+
   int count10 = 0;
   int count11 = 0;
   int count12 = 0;
@@ -834,31 +744,6 @@
     
   }//while
   printf("\n");
-  
-  
-  
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
